@@ -14,6 +14,7 @@ def valid_ip(potential_ip):
 	Returns either True or False
 	
 	taken from a lesson by CCIE emeritus Kirk Byers (https://pynet.twb-tech.com/) class Python for Network Engineers
+	
 	'''	
 
 	octets = potential_ip.split('.')
