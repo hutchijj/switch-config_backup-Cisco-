@@ -1,3 +1,4 @@
+
 import Crypto
 import paramiko
 
@@ -45,7 +46,7 @@ def dev_commands():
 	send_string_and_wait_for_string("conf t\n", "(config)#", False)
 	send_string_and_wait_for_string("file prompt quiet\n", "(config)#", False)
 	send_string_and_wait_for_string("end\n", "#", False)
-	send_string_and_wait_for_string(r"copy flash:/" + local_file + r" tftp://" + tftp_server + r"/" + remote_file + "\n", "#", True)
+	send_string_and_wait_for_string(r"copy flash:/" + local_file + r" tftp://" + tftp_server + r"/" + switch['hostname'] + ".txt\n", "#", True)
 	send_string_and_wait_for_string("conf t\n", "(config)#", True)
 	send_string_and_wait_for_string("file prompt alert\n", "(config)#", False)
 	send_string_and_wait_for_string("end\n", "#", False)
@@ -79,7 +80,8 @@ with open(r'c:\switch_ips.csv','r') as f:
 		switch = {
 			'ip':switch_line[0],
 			'username':switch_line[1],
-			'password':str(switch_line[2]).strip('\n')
+			'password':switch_line[2],
+			'hostname' = str(switch_line[3]).strip('\n')
 			}
 		if valid_ip(switch['ip']) and switch['password'] and switch['username']:
 			# Create an SSH client
