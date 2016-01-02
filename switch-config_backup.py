@@ -81,7 +81,7 @@ with open(r'c:\switch_ips.csv','r') as f:
 			'username':switch_line[1],
 			'password':str(switch_line[2]).strip('\n')
 			}
-		if valid_ip(switch['ip']):
+		if valid_ip(switch['ip']) and switch['password'] and switch['username']:
 			# Create an SSH client
 			client = paramiko.SSHClient()
 			# Make sure that we add the remote server's SSH key automatically
