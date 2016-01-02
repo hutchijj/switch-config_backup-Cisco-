@@ -1,0 +1,5 @@
+ip,username,password
+10.10.10.10,admin,password
+172.16.1.1,cisco,cisco
+192.168.0.1,linksys,
+monkey,banana,bread
