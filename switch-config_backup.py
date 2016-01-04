@@ -1,10 +1,9 @@
-
 import Crypto
 import paramiko
 
 tftp_server = input('TFTP server: ')
 local_file = input('Local Filename: ')
-remote_file = input('File name on TFTP server: ')
+#remote_file = input('File name on TFTP server: ')
 
 
 def valid_ip(potential_ip):
@@ -82,7 +81,7 @@ with open(r'c:\switch_ips.csv','r') as f:
 			'ip':switch_line[0],
 			'username':switch_line[1],
 			'password':switch_line[2],
-			'hostname' = str(switch_line[3]).strip('\n')
+			'hostname':str(switch_line[3]).strip('\n')
 			}
 		if valid_ip(switch['ip']) and switch['password'] and switch['username']:
 			# Create an SSH client
